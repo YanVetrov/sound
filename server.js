@@ -56,8 +56,8 @@ var osmo = require("osmosis")
 //     var nick = last.nick;
 //     var comment = last.comment;
 //     ctx.reply('комментарий ' + comment + ' от пользователя ' + nick + ' под исполнителем ' + signer.toLocaleLowerCase())
-//     // request.get('http://mp3cc.com/search/f/feduk+%D0%BC%D0%BE%D1%80%D1%8F%D0%BA/').pipe(fs.createWriteStream('source.html'))
-//     // var url = "http://mp3cc.com/search/f/feduk";
+//     // request.get('http://sample2.com/search/f/feduk+%D0%BC%D0%BE%D1%80%D1%8F%D0%BA/').pipe(fs.createWriteStream('source.html'))
+//     // var url = "http://sample2.com/search/f/feduk";
 
 //     // request(url, function(error, response, body) {
 //     //     if (!error) {
@@ -583,9 +583,9 @@ app.use('*', bodyParser.urlencoded({
 
 // })
 app.use(bodyParser.json())
-// app.get('/khalid', function(req, res, next) {
-//     res.status(404).send('');
-// });
+    // app.get('/khalid', function(req, res, next) {
+    //     res.status(404).send('');
+    // });
 
 app.post('/newcomments', function(req, res, next) {
     var comments = require("./comments.json");
@@ -602,8 +602,7 @@ app.post('/count', function(req, res) {
             if (tracklist[i].count != undefined) {
                 tracklist[i].count += 1;
                 console.log('ok listen');
-            }
-            else { tracklist[i].count = 1; }
+            } else { tracklist[i].count = 1; }
         }
     }
     tracklist = JSON.stringify(tracklist);
@@ -617,8 +616,7 @@ app.post('/likes', function(req, res) {
             if (tracklist[i].likes != undefined) {
                 tracklist[i].likes += 1;
                 console.log('ok like');
-            }
-            else { tracklist[i].likes = 1; }
+            } else { tracklist[i].likes = 1; }
         }
     }
     tracklist = JSON.stringify(tracklist);
@@ -717,7 +715,7 @@ app.get('/tracks', function(req, res) {
     //         }
 
     //     }
-    request('http://muzzov.net/top100.html', function(error, response, body) {
+    request('http://sample.net/top100.html', function(error, response, body) {
         if (!error) {
             var $ = cheerio.load(body)
             var tracks = []
@@ -730,10 +728,10 @@ app.get('/tracks', function(req, res) {
                 // bg = `background-image:url('${bg}');`
                 var signerLink = $('.top-song-link').eq(i).attr('href');
                 signerLink = signerLink.slice(18, signerLink.length);
-                bg = 'http://muzzov.net' + bg;
+                bg = 'http://sample.net' + bg;
                 var obj = { signer: signer, song, song, src: src, background: bg, link: signerLink }
                 tracks.push(obj);
-               
+
 
 
 
@@ -766,22 +764,22 @@ app.post('/search', function(req, res) {
     console.log(track)
     switch (track) {
         case 'pop':
-            link = 'http://muzzov.net/pop/'
+            link = 'http://sample.net/pop/'
             break;
         case 'rock':
-            link = 'http://muzzov.net/rok/'
+            link = 'http://sample.net/rok/'
             break;
         case 'rap':
-            link = 'http://muzzov.net/rep/'
+            link = 'http://sample.net/rep/'
             break;
         case 'indie':
-            link = 'http://muzzov.net/indie/'
+            link = 'http://sample.net/indie/'
             break;
         case 'house':
-            link = 'http://muzzov.net/house/'
+            link = 'http://sample.net/house/'
             break;
         case 'alternative':
-            link = 'http://muzzov.net/alternativa/'
+            link = 'http://sample.net/alternativa/'
             break;
         default:
             var formdata = {
@@ -799,7 +797,7 @@ app.post('/search', function(req, res) {
                     'Content-Length': contentLength,
                     'Content-Type': 'application/x-www-form-urlencoded'
                 },
-                uri: 'http://muzzov.net/index.php?do=search',
+                uri: 'http://sample.net/index.php?do=search',
                 body: formData,
                 method: 'POST'
             }
@@ -825,7 +823,7 @@ app.post('/search', function(req, res) {
             var bg = $('.top-song-image img').eq(i).attr('src');
             var signerLink = $('.top-song-link').eq(i).attr('href');
             signerLink = signerLink.slice(18, signerLink.length);
-            bg = 'http://muzzov.net' + bg;
+            bg = 'http://sample.net' + bg;
             var obj = { signer: signer, song: song, src: src, background: bg, link: signerLink }
             tracks.push(obj);
 
@@ -869,9 +867,9 @@ app.post('/switchgenre', function(req, res) {
 
     var track = Object.keys(req.body).toString().trim();
     track = JSON.parse(track);
-    var link = 'http://muzzov.net'+'/'+track+'/'
+    var link = 'http://sample.net' + '/' + track + '/'
     console.log(link);
-   
+
 
 
     request(link, function(err, ress, body) {
@@ -886,7 +884,7 @@ app.post('/switchgenre', function(req, res) {
             var bg = $('.top-song-image img').eq(i).attr('src');
             var signerLink = $('.top-song-link').eq(i).attr('href');
             signerLink = signerLink.slice(18, signerLink.length);
-            bg = 'http://muzzov.net' + bg;
+            bg = 'http://sample.net' + bg;
             var obj = { signer: signer, song, song, src: src, background: bg, link: signerLink }
             tracks.push(obj);
 
@@ -927,7 +925,7 @@ app.post('/switchgenre', function(req, res) {
 })
 app.get('/navigation', function(req, res) {
 
-    request('http://muzzov.net', function(err, ress, body) {
+    request('http://sample.net', function(err, ress, body) {
 
         var $ = cheerio.load(body)
         var genres = []
@@ -936,11 +934,11 @@ app.get('/navigation', function(req, res) {
             var genre = $('.left-nav a').eq(i).text();
             var link = $('.left-nav a').eq(i).attr('href');
             link = link.slice(18, link.length)
-            var obj={genre:genre,link:link}
+            var obj = { genre: genre, link: link }
             genres.push(obj)
-            
-            
-           
+
+
+
 
 
 
@@ -960,14 +958,14 @@ app.post('/description', function(req, res) {
     var track = Object.keys(req.body).toString().trim();
     var link = JSON.parse(track);
     var origLink = link;
-    link = 'http://muzzov.net' + link
+    link = 'http://sample.net' + link
     console.log(link);
     request(link, function(err, ress, body) {
         var $ = cheerio.load(body)
         var descr = $('.full-hid').eq(0).text();
         var img = $('.full-news-image img').eq(0).attr('src');
         var orig = $('.full-news-image img').eq(0).attr('alt');
-        orig==undefined?false:orig = orig.split('-');
+        orig == undefined ? false : orig = orig.split('-');
         var origSigner = orig[0];
         var origSong = orig[1];
         var comment = $('.full-block-content').html();
@@ -975,8 +973,8 @@ app.post('/description', function(req, res) {
         var origSrc = comment[0].match(/http[\s\S]*?mp3/g);
         origSrc = origSrc.toString();
         var name = $('.full-news-image img').eq(0).attr('alt');
-        img = 'http://muzzov.net' + img
-        var track = {src:origSrc,background:img,signer:origSigner,song:origSong,link:origLink}
+        img = 'http://sample.net' + img
+        var track = { src: origSrc, background: img, signer: origSigner, song: origSong, link: origLink }
         console.log(track);
         var tracklist = []
         var block = $('.top-song');
@@ -987,14 +985,14 @@ app.post('/description', function(req, res) {
             var bg = $('.top-song-image img').eq(i).attr('src');
             var signerLink = $('.top-song-link').eq(i).attr('href');
             signerLink = signerLink.slice(18, signerLink.length);
-            bg = 'http://muzzov.net' + bg;
+            bg = 'http://sample.net' + bg;
             var tracks = { signer: signer, song, song, src: src, background: bg, link: signerLink }
             tracklist.push(tracks);
 
 
 
         }
-        var obj = { descr: descr, src: img, name: name, tracklist: tracklist,track:track }
+        var obj = { descr: descr, src: img, name: name, tracklist: tracklist, track: track }
 
         res.send(obj);
 
@@ -1030,11 +1028,10 @@ app.get('*', function(req, res, next) {
         console.log('Found file');
         res.sendFile(__dirname + req.url);
         console.log(req.url + ' ' + res.statusCode);
-    }
-    else {
+    } else {
         res.redirect('/');
         redirect = { url: req.url };
-        
+
         console.log(req.url + ' ' + res.statusCode);
     }
 
