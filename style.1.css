@@ -1,0 +1,113 @@
+
+body {
+    background-color: white;
+}
+
+header {
+    background-color: white;
+}
+
+
+
+
+
+i {
+
+    color: black
+}
+
+aside {
+    background-color: white;
+}
+
+
+.list {
+    color: silver;
+
+}
+
+a {
+    color: black
+}
+
+
+footer {
+    background-color: white;
+}
+
+footer>a,
+footer>div {
+    color: black
+}
+
+
+
+
+
+
+
+
+
+.wrap,
+.favorite {
+
+    background-color: white
+}
+
+
+
+
+
+
+
+
+
+
+
+.song {
+    color: black;
+}
+
+.player {
+    background-color: white;
+}
+
+
+
+.window {
+
+    background-color: white;
+
+    color: black
+}
+
+
+.searcher {
+
+    background-color: grey;
+
+    color: black
+}
+
+.genre-block {
+    color: black;
+}
+
+.settings {
+
+    background-color: inherit;
+   
+
+
+}
+
+
+.router-link-active{
+    
+    color:grey;
+}
+.router-link-active i {
+    color: grey;
+}
+
+

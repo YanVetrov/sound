@@ -1,0 +1,421 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,900&subset=cyrillic');
+body {
+    margin: 0 auto;
+    margin-top: 66px;
+    font-family: 'Roboto';
+    background-color: #1E1E1E;
+    padding-bottom: 66px;
+    transition: background-color 1s, color 1s;
+    -webkit-overflow-scrolling: touch
+}
+
+header {
+    margin-top: -66px;
+    position: fixed;
+    padding-top: 25px;
+    transform: translateY(-25px);
+    background-color: #212121;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    z-index: 3;
+
+    transition: background-color 1s, color 1s;
+}
+
+
+audio {
+    position: absolute;
+    margin-top: -9999px;
+}
+
+input {
+    border: 1px;
+    max-width: 120px;
+    height: 20px;
+    background-color: grey;
+}
+
+i {
+    font-size: 30px;
+    margin: 10px;
+    color: white;
+    transition: background-color 1s, color 1s;
+}
+
+aside {
+    position: fixed;
+    background-color: #212121;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    top: 57px;
+    font-size: 11px;
+    -webkit-overflow-scrolling: touch;
+    right: 0;
+    height: 81%;
+    padding-bottom: 50px;
+    z-index: 2;
+    transition: background-color 1s, color 1s;
+
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.list {
+    padding: 10px;
+    font-size: 15px;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    border-bottom: 1px solid #27282B;
+    transition: background-color 1s, color 1s;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    transition: background-color 1s, color 1s;
+}
+
+audio {
+    max-width: 200px;
+}
+
+footer {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    flex-direction: row;
+    background-color: #27282B;
+    width: 100%;
+    z-index: 2;
+    transition: background-color 1s, color 1s;
+}
+
+footer>a,
+footer>div {
+    width: 25%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-size: 10px;
+    color: white;
+}
+
+footer i {
+    margin: 0;
+}
+
+.center,
+.centerFav {
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.center {
+    flex-direction: column;
+    align-items: center;
+}
+
+.center .block {
+    margin-top: 10px;
+}
+
+.wrap,
+.favorite {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    max-width: 900px;
+    background-color: #1E1E1E;
+    transition: background-color 1s, color 1s;
+
+}
+
+.favorite {
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.block {
+    margin: 10px;
+    height: 200px;
+    text-align: center;
+    width: 200px;
+    overflow: hidden;
+}
+
+.favorite .block {
+    margin: 0 auto;
+    height: 50px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 1px solid #27282B;
+    align-items: center;
+}
+
+.favorite {
+    width: 100%;
+    align-items: center;
+}
+
+.cleaner {
+    transition: transform 2.5s;
+    display: inline-block;
+}
+
+.active-cleaner {
+    transform: rotate(360deg)
+}
+
+.favorite .bg {
+    height: 100%;
+    width: 50px;
+
+}
+
+.favorite .signer {
+    font-size: 10px;
+    width: 20%;
+
+}
+
+.favorite .song {
+    font-size: 10px;
+    width: 35%;
+
+}
+
+.favoriteBar {
+    width: 94%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.genre-block {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 90%;
+    top: 100px;
+    padding: 5px;
+    color: white;
+}
+
+.bg {
+    height: 70%;
+    background-image: url('http://pngimg.com/uploads/music_notes/music_notes_PNG68.png');
+    background-size: cover;
+}
+
+.addFav {
+    position: absolute;
+}
+
+.song {
+    display: block;
+    color: white;
+    font-weight: bold;
+    transition: background-color 1s, color 1s;
+}
+
+.player {
+    position: absolute;
+    background-color: #27282B;
+    bottom: 49px;
+    width: 100%;
+    transition: background-color 1s, color 1s;
+}
+
+.player-button {
+    position: absolute;
+    right: 15px;
+}
+
+.player-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.player-song {
+    font-size: 15px;
+}
+
+.player-bg {
+    width: 40px;
+    height: 100%;
+    position: absolute;
+    left: 20px;
+    background-size: cover;
+    margin: 1px;
+}
+
+.progress-bar {
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    bottom: 30px;
+
+}
+
+.bar {
+    width: 0%;
+    height: 100%;
+    background-color: white;
+    transition: width .7s;
+}
+
+.time {
+    display: none;
+
+
+}
+
+.slide-enter-active,
+.slide-leave-active {
+    transition: all .4s;
+}
+
+.slide-enter,
+.slide-leave-to {
+    /*position: absolute;*/
+    opacity: 0;
+    transform: translateY(200px);
+}
+
+.slide-right-enter-active,
+.slide-right-leave-active {
+    transition: all .4s;
+    height: 100vh !important;
+}
+
+.slide-right-enter,
+.slide-right-leave-to {
+    opacity: 0;
+    transform: translateX(-200px);
+}
+
+.slide-left-enter-active,
+.slide-left-leave-active {
+    transition: all .4s;
+    height: 100vh !important;
+}
+
+.slide-left-enter,
+.slide-left-leave-to {
+    /*position: absolute;*/
+    opacity: 0;
+    transform: translateX(200px);
+}
+
+.window {
+    position: relative;
+    width: 98%;
+    height: auto;
+    background-color: #1E1E1E;
+    display: flex;
+    justify-content: center;
+    color: white;
+    transition: background-color 1s, color 1s;
+}
+
+.descr {
+    display: flex;
+    padding: 15px;
+    width: 95vw;
+    max-width: 400px;
+    font-weight: bold;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+.descr-bg {
+    background-size: cover;
+    width: 200px;
+    height: 200px;
+    box-shadow: -1px -1px 25px silver;
+}
+
+.searcher {
+    position: relative;
+    top: 75px;
+    max-width: none;
+    width: 90vw;
+    text-align: center;
+    background-color: #5E5E5E;
+    border: 1px;
+    color: white;
+    transition: background-color 1s, color 1s;
+}
+
+.settings {
+    position: absolute;
+    background-color: inherit;
+    width: 100%;
+    bottom: 48px;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.settings>div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 15px;
+    border-bottom: 1px solid #1E1E1E;
+    width: 90%;
+
+
+}
+.genre-block{
+    transition: background-color 1s, color 1s;
+}
+
+.v-spinner {
+    z-index: 5;
+}
+
+.router-link-active {
+    color: grey;
+}
+
+.router-link-active i {
+    color: grey;
+}
+
+@media screen and (max-width:400px) {
+
+    .block {
+        width: 35vw;
+        height: 30vh;
+    }
+    .signer {
+        font-size: 13px;
+    }
+    .song {
+        font-size: 13px;
+    }
+
+
+
+}
